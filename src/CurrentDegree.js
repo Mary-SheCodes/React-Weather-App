@@ -6,11 +6,11 @@ export default function CurrentDegree() {
         0
       </div>
       <div className="unit">
-        <a href="#" id="celsius-link" className="active-temp">
+        <a href="/" id="celsius-link" className="active-temp">
           °C
         </a>{" "}
         |
-        <a href="#" id="fahrenheit-link">
+        <a href="/" id="fahrenheit-link">
           °F
         </a>
       </div>
