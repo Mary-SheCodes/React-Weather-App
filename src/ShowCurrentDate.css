@@ -1,0 +1,9 @@
+.date {
+  font-size: medium;
+}
+
+@media (max-width: 400px) {
+  .date {
+    font-size: small;
+  }
+}

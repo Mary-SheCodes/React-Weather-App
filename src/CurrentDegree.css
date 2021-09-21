@@ -1,0 +1,29 @@
+.temperature {
+  font-family: "Special Elite", cursive;
+  color: #6b6868;
+  font-size: 60px;
+  font-weight: 400;
+}
+.unit {
+  font-family: "Special Elite", cursive;
+  color: #6b6868;
+  margin-top: -20px;
+}
+a,
+a:hover,
+.active-temp,
+.active-temp:hover {
+  color: #6b6868;
+  text-decoration: none;
+}
+a {
+  cursor: default;
+}
+a:hover {
+  cursor: pointer;
+}
+.active-temp,
+.active-temp:hover {
+  font-weight: bold;
+  cursor: default;
+}
