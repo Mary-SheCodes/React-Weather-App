@@ -7,21 +7,21 @@ export default function Serach() {
         <input
           id="search-input"
           type="search"
-          className="form-control"
+          className="form-control me-1"
           placeholder="Enter City Name"
           aria-label="City Name"
           aria-describedby="basic-addon2"
         />
         <div className="input-group-append">
           <button
-            className="btn btn-outline-secondary"
+            className="btn btn-outline-secondary me-1"
             type="submit"
             id="submit-addon2"
           >
             Search
           </button>
           <button
-            className="btn btn-outline-secondary"
+            className="btn btn-outline-secondary me-1"
             type="button"
             id="button-addon2"
           >
