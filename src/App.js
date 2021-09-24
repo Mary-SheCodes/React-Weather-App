@@ -12,6 +12,7 @@ import CurrentDegree from "./CurrentDegree";
 import Footer from "./Footer";
 
 import "./App.css";
+import Api from "./Api";
 
 export default function APP() {
   return (
