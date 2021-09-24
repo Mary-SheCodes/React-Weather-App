@@ -1,8 +1,8 @@
 import "./Wind.css";
-export default function Wind() {
+export default function Wind(props) {
   return (
     <div className="wind">
-      <div id="wind">Wind: 0 km/h</div>
+      <div id="wind">Wind: {props.data} km/h</div>
     </div>
   );
 }

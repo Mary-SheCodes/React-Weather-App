@@ -1,8 +1,8 @@
 import "./Humidity.css";
-export default function Humidity() {
+export default function Humidity(props) {
   return (
     <div className="humidity">
-      <div id="humidity">Humidity: 24%</div>
+      <div>Humidity: {props.data}%</div>
     </div>
   );
 }

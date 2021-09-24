@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import WeatherComponents from "./WeatherComponents";
 
 export default function Api() {
   const [loader, setLoader] = useState(false);
@@ -26,12 +27,7 @@ export default function Api() {
   }
 
   if (loader) {
-    return (
-      <div>
-        <div>{weatherdata.temprature}</div>
-        <div>{weatherdata.humidity}</div>
-      </div>
-    );
+    return <WeatherComponents data={weatherdata}/>;
   } else {
     return "Loader";
   }

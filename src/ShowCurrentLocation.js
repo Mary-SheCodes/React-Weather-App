@@ -1,10 +1,10 @@
 import "./ShowCurrentLocation.css";
-export default function ShowCurrentLocation() {
+export default function ShowCurrentLocation(props) {
   return (
     <div className="maincity">
-      <span id="current-city">Tehran</span>
+      <span> {props.data1}</span>
       <span>, </span>
-      <span id="current-country">Iran</span>
+      <span> {props.data2}</span>
     </div>
   );
 }

@@ -1,11 +1,14 @@
 import "./CurrentStatusIcon.css";
-export default function CurrentStatusIcon() {
+export default function CurrentStatusIcon(props) {
+  let imgDescription = props.data;
+  imgDescription = imgDescription.replace(" ", "_");
+  let imgUrl = `/weathericons/${imgDescription}.png`;
   return (
     <div>
       <img
-        src="/weathericons/Heavy_shower_snow.png"
+        src={imgUrl}
         className="weathericone img-fluid w-50"
-        alt="Heavy_shower_snow"
+        alt={props.data}
         id="defaultIcon"
       />
     </div>

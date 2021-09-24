@@ -1,9 +1,9 @@
 import "./CurrentDegree.css";
-export default function CurrentDegree() {
+export default function CurrentDegree(props) {
   return (
     <div id="degree">
       <div className="temperature" id="temperature">
-        0
+        {props.data}
       </div>
       <div className="unit">
         <a href="/" id="celsius-link" className="active-temp">
