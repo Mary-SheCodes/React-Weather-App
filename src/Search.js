@@ -1,34 +1,38 @@
+import React, { useState } from "react";
 import "./Search.css";
 
-export default function Serach() {
+const Search = function (props) {
+  const handleChange = (event) => {
+    props.onchange(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.onSubmit(event.target.value);
+    console.log("onSubmit search in :", props);
+  };
+
   return (
-    <form id="search-form" className="form">
+    <form id="search-form" className="form" onSubmit={handleSubmit}>
       <div className="input-group">
         <input
-          id="search-input"
           type="search"
           className="form-control me-1"
           placeholder="Enter City Name"
           aria-label="City Name"
           aria-describedby="basic-addon2"
+          onChange={handleChange}
         />
         <div className="input-group-append">
-          <button
-            className="btn btn-outline-secondary me-1"
-            type="submit"
-            id="submit-addon2"
-          >
+          <button className="btn btn-outline-secondary me-1" type="submit">
             Search
           </button>
-          <button
-            className="btn btn-outline-secondary me-1"
-            type="button"
-            id="button-addon2"
-          >
+          <button className="btn btn-outline-secondary me-1" type="button">
             Current
           </button>
         </div>
       </div>
     </form>
   );
-}
+};
+export default Search;

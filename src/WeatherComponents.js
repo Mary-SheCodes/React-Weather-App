@@ -17,7 +17,6 @@ export default function WeatherComponents(props) {
       <div className="container">
         <div className="row">
           <div className="col-md-9">
-            <Search />
           </div>
           <div className="col-md-3 my-auto text-center">
             <ShowCurrentLocation
