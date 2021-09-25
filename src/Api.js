@@ -8,7 +8,7 @@ export default function Api() {
 
   useEffect(function () {
     const apiKey = "23422500afd990f6bd64b60f46cf509a";
-    let city = "Tehran";
+    let city = "Berlin";
     let units = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
     return axios.get(apiUrl).then(getApi);
@@ -27,7 +27,7 @@ export default function Api() {
   }
 
   if (loader) {
-    return <WeatherComponents data={weatherdata}/>;
+    return <WeatherComponents data={weatherdata} />;
   } else {
     return "Loader";
   }
