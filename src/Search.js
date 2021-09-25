@@ -8,8 +8,7 @@ const Search = function (props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.onSubmit(event.target.value);
-    console.log("onSubmit search in :", props);
+    props.onsubmit(event.target.value);
   };
 
   return (

@@ -2,31 +2,34 @@ import React, { useState, useEffect, Component } from "react";
 import axios from "axios";
 import WeatherComponents from "./WeatherComponents";
 import Search from "./Search";
+import ShowCurrentLocation from "./ShowCurrentLocation";
 
 const Api = function (props) {
-  const [city, setCity] = useState("Tehran");
+  let [city, setCity] = useState("Tehran");
   const [value, setValue] = useState("");
   const [loader, setLoader] = useState(false);
   const [weatherdata, setWeatherdata] = useState("");
 
   const onchange = (data) => {
     setValue(data);
-    console.log("Khorooji onchange", data);
   };
 
-  const onSubmit = (data) => {
-    setCity(data);
-    console.log("Khorooji Submit", data);
+  const onsubmit = () => {
+    setCity(value);
+    city = value;
+    callApi();
   };
 
-  useEffect(function () {
+  useEffect(callApi, []);
+
+  function callApi() {
     const apiKey = "23422500afd990f6bd64b60f46cf509a";
     let units = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-    return axios.get(apiUrl).then(getApi);
-  }, []);
+    return axios.get(apiUrl).then(getWeatherData);
+  }
 
-  function getApi(response) {
+  function getWeatherData(response) {
     setWeatherdata({
       temprature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
@@ -45,8 +48,8 @@ const Api = function (props) {
           <div className="col-md-9">
             <Search
               data={city}
-              onSubmit={(event) => {
-                onSubmit(event);
+              onsubmit={(event) => {
+                onsubmit(event);
               }}
               data={value}
               onchange={(event) => {
@@ -54,7 +57,12 @@ const Api = function (props) {
               }}
             />
           </div>
-          <div className="col-md-3 my-auto text-center"></div>
+          <div className="col-md-3 my-auto text-center">
+            <ShowCurrentLocation
+              data1={weatherdata.city}
+              data2={weatherdata.country}
+            />
+          </div>
           <WeatherComponents data={weatherdata} />
         </div>
       </div>

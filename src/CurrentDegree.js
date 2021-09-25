@@ -1,7 +1,7 @@
 import "./CurrentDegree.css";
 export default function CurrentDegree(props) {
   return (
-    <div id="degree">
+    <div>
       <div className="temperature" id="temperature">
         {props.data}
       </div>

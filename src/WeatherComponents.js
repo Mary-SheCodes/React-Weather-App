@@ -16,20 +16,9 @@ export default function WeatherComponents(props) {
     <div>
       <div className="container">
         <div className="row">
-          <div className="col-md-9">
-          </div>
-          <div className="col-md-3 my-auto text-center">
-            <ShowCurrentLocation
-              data1={props.data.city}
-              data2={props.data.country}
-            />
-          </div>
-        </div>
-
-        <div className="row">
           <div className="col-md-6 my-auto mt-2">
             <div className="row">
-              <div className="col-6 my-auto text-center">
+              <div className="col-6 my-auto text-start">
                 <div className="row">
                   <Humidity data={props.data.humidity} />
                 </div>
@@ -50,7 +39,7 @@ export default function WeatherComponents(props) {
 
           <div className="col-md-6 my-auto mt-2">
             <div className="row">
-              <div className="col-6 my-auto text-center">
+              <div className="col-8 my-auto text-center">
                 <div className="row">
                   <ShowCurrentDay />
                 </div>
@@ -61,7 +50,7 @@ export default function WeatherComponents(props) {
                   <ShowCurrentHour />
                 </div>
               </div>
-              <div className="col-6 my-auto text-center">
+              <div className="col-4 my-auto text-center">
                 <CurrentDegree data={props.data.temprature} />
               </div>
             </div>
