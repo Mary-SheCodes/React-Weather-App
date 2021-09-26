@@ -5,7 +5,7 @@ import Search from "./Search";
 import ShowCurrentLocation from "./ShowCurrentLocation";
 
 const Api = function (props) {
-  let [city, setCity] = useState("Tehran");
+  let [searchCity, setSearchCity] = useState("Tehran");
   const [value, setValue] = useState("");
   const [loader, setLoader] = useState(false);
   const [weatherdata, setWeatherdata] = useState("");
@@ -15,7 +15,7 @@ const Api = function (props) {
   };
 
   const onsubmit = () => {
-    setCity(value);
+    setSearchCity(value);
     city = value;
     callApi();
   };
@@ -47,7 +47,7 @@ const Api = function (props) {
         <div className="row">
           <div className="col-md-9">
             <Search
-              data={city}
+              data={searchCity}
               onsubmit={(event) => {
                 onsubmit(event);
               }}
