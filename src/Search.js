@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Search.css";
 
 const Search = function (props) {
@@ -12,7 +12,7 @@ const Search = function (props) {
   };
 
   return (
-    <form id="search-form" className="form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <div className="input-group">
         <input
           type="search"

@@ -1,11 +1,11 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WeatherComponents from "./WeatherComponents";
 import Search from "./Search";
 import ShowCurrentLocation from "./ShowCurrentLocation";
 
 const Api = function (props) {
-  let [searchCity, setSearchCity] = useState("Tehran");
+  let [searchcity, setSearchcity] = useState("Tehran");
   const [value, setValue] = useState("");
   const [loader, setLoader] = useState(false);
   const [weatherdata, setWeatherdata] = useState("");
@@ -15,17 +15,17 @@ const Api = function (props) {
   };
 
   const onsubmit = () => {
-    setSearchCity(value);
-    searchCity = value;
+    setSearchcity(value);
+    searchcity = value;
     callApi();
   };
-
-  useEffect(callApi, []);
+// eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(callApi, []); 
 
   function callApi() {
     const apiKey = "23422500afd990f6bd64b60f46cf509a";
     let units = "metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${apiKey}&units=${units}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchcity}&appid=${apiKey}&units=${units}`;
     return axios.get(apiUrl).then(getWeatherData);
   }
 
@@ -47,11 +47,11 @@ const Api = function (props) {
         <div className="row">
           <div className="col-md-9">
             <Search
-              data={searchCity}
+              data1={searchcity}
               onsubmit={(event) => {
                 onsubmit(event);
               }}
-              data={value}
+              data2={value}
               onchange={(event) => {
                 onchange(event);
               }}
