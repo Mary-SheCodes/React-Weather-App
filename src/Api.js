@@ -16,7 +16,7 @@ const Api = function (props) {
 
   const onsubmit = () => {
     setSearchCity(value);
-    city = value;
+    searchCity = value;
     callApi();
   };
 
@@ -25,7 +25,7 @@ const Api = function (props) {
   function callApi() {
     const apiKey = "23422500afd990f6bd64b60f46cf509a";
     let units = "metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=${apiKey}&units=${units}`;
     return axios.get(apiUrl).then(getWeatherData);
   }
 
