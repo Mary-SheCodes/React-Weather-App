@@ -35,9 +35,7 @@ export default function CurrentDegree(props) {
 
   return (
     <div>
-      <div className="temperature" id="temperature">
-        {temprature}
-      </div>
+      <div className="temperature">{temprature}</div>
       <div className="unit">
         <a href="/" className={celsiusclass} onClick={showCelsius}>
           °C

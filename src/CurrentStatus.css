@@ -1,6 +1,11 @@
+.weathericone {
+  display: block;
+  margin: 0 auto;
+}
+
 .status {
-  text-align: center;
   text-transform: capitalize;
+  margin: 0 auto;
   width: 75%;
 }
 @media (max-width: 767px) {
