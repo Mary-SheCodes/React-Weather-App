@@ -1,9 +1,0 @@
-.hour {
-  font-size: medium;
-}
-
-@media (max-width: 400px) {
-  .hour {
-    font-size: small;
-  }
-}

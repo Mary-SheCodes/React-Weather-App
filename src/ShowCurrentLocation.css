@@ -1,4 +1,11 @@
 .maincity {
   font-weight: 600;
   color: #6b6868;
+  font-size: medium;
+}
+@media (max-width: 767px) {
+  .maincity {
+    font-weight: 300;
+    font-size: x-large;
+  }
 }

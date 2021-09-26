@@ -1,9 +1,0 @@
-.humidity {
-  font-size: medium;
-}
-
-@media (max-width: 400px) {
-  .humidity {
-    font-size: small;
-  }
-}
