@@ -12,7 +12,9 @@
 a,
 a:hover,
 .active-temp,
-.active-temp:hover {
+.active-temp:hover,
+.deactive-temp,
+.deactive-temp:hover {
   color: #6b6868;
   text-decoration: none;
 }
@@ -25,5 +27,11 @@ a:hover {
 .active-temp,
 .active-temp:hover {
   font-weight: bold;
+  font-size: large;
+  cursor: default;
+}
+.deactive-temp,
+.deactive-temp:hover {
+  font-weight: lighter;
   cursor: default;
 }
