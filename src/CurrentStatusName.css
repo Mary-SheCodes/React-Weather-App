@@ -1,3 +1,9 @@
 .status {
   text-transform: capitalize;
+  width: 75%;
+}
+@media (max-width: 767px) {
+  .weathericone {
+    width: 50% !important;
+  }
 }

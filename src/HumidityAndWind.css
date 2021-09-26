@@ -2,6 +2,12 @@
   font-size: medium;
 }
 
+@media (max-width: 767px) {
+  .humidity-and-wind {
+    text-align: center;
+  }
+}
+
 @media (max-width: 400px) {
   .humidity-and-wind {
     font-size: small;

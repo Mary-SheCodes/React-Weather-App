@@ -19,8 +19,9 @@ const Api = function (props) {
     searchcity = value;
     callApi();
   };
-// eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(callApi, []); 
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(callApi, []);
 
   function callApi() {
     const apiKey = "23422500afd990f6bd64b60f46cf509a";
