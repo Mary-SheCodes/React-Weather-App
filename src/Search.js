@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import "./Search.css";
 
 const Search = function (props) {
@@ -11,19 +11,14 @@ const Search = function (props) {
     props.onsubmit(event.target.value);
   };
 
-  //const navigation = (event) => {
-  //  event.preventDefault();
-  //   navigator.geolocation.getCurrentPosition(showPosition);
-  // };
+  const navigation = (event) => {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(getLocation);
+  };
 
-  // const showPosition = (position) => {
-  //   let latitude = position.coords.latitude;
-  //   let longitude = position.coords.longitude;
-  //   let latandlon = `lat=${latitude}&lon=${longitude}`;
-  //   let apiKey = "23422500afd990f6bd64b60f46cf509a";
-  //    let unit = "metric";
-  //    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?${latandlon}&appid=${apiKey}&units=${unit}
-  //`;  };
+  const getLocation = (position) => {
+    props.updateLocation(position);
+  };
 
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -39,6 +34,13 @@ const Search = function (props) {
         <div className="input-group-append">
           <button className="btn btn-outline-secondary me-1" type="submit">
             Search
+          </button>
+          <button
+            className="btn btn-outline-secondary me-1"
+            type="button"
+            onClick={navigation}
+          >
+            Current
           </button>
         </div>
       </div>

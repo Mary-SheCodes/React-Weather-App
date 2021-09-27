@@ -6,21 +6,12 @@ import HumidityAndWind from "./HumidityAndWind";
 import CurrentStatus from "./CurrentStatus";
 import ShowCurrentDay from "./ShowCurrentDay";
 import CurrentDegree from "./CurrentDegree";
-import ShowCurrentData from "./ShowCurrentData";
 
 const Api = function (props) {
   let [searchcity, setSearchcity] = useState("Tehran");
   const [value, setValue] = useState("");
   const [loader, setLoader] = useState(false);
   const [weatherdata, setWeatherdata] = useState("");
-
-  const [dataFromChild, setDataFromChild] = useState("");
-  console.log("Data child is", dataFromChild);
-
-  const onclick = (dataFromChild) => {
-    console.log("Data child is 2", dataFromChild);
-    axios.get(dataFromChild).then(getWeatherData);
-  };
 
   const onchange = (data) => {
     setValue(data);
@@ -30,6 +21,16 @@ const Api = function (props) {
     setSearchcity(value);
     searchcity = value;
     callApi();
+  };
+
+  const updateLocation = (position) => {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    let latandlon = `lat=${latitude}&lon=${longitude}`;
+    let apiKey = "23422500afd990f6bd64b60f46cf509a";
+    let unit = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?${latandlon}&appid=${apiKey}&units=${unit}`;
+    axios.get(apiUrl).then(getWeatherData);
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -68,12 +69,8 @@ const Api = function (props) {
               onchange={(event) => {
                 onchange(event);
               }}
-            />
-            <ShowCurrentData
-              setDataFromChild={setDataFromChild}
-              data={weatherdata.description}
-              onclick={(event) => {
-                onclick(event);
+              updateLocation={(event) => {
+                updateLocation(event);
               }}
             />
           </div>
