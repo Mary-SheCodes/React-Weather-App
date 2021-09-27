@@ -6,12 +6,21 @@ import HumidityAndWind from "./HumidityAndWind";
 import CurrentStatus from "./CurrentStatus";
 import ShowCurrentDay from "./ShowCurrentDay";
 import CurrentDegree from "./CurrentDegree";
+import ShowCurrentData from "./ShowCurrentData";
 
 const Api = function (props) {
   let [searchcity, setSearchcity] = useState("Tehran");
   const [value, setValue] = useState("");
   const [loader, setLoader] = useState(false);
   const [weatherdata, setWeatherdata] = useState("");
+
+  const [dataFromChild, setDataFromChild] = useState("");
+  console.log("Data child is", dataFromChild);
+
+  const onclick = (dataFromChild) => {
+    console.log("Data child is 2", dataFromChild);
+    axios.get(dataFromChild).then(getWeatherData);
+  };
 
   const onchange = (data) => {
     setValue(data);
@@ -58,6 +67,13 @@ const Api = function (props) {
               data2={value}
               onchange={(event) => {
                 onchange(event);
+              }}
+            />
+            <ShowCurrentData
+              setDataFromChild={setDataFromChild}
+              data={weatherdata.description}
+              onclick={(event) => {
+                onclick(event);
               }}
             />
           </div>
