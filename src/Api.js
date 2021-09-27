@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import WeatherComponents from "./WeatherComponents";
 import Search from "./Search";
 import ShowCurrentLocation from "./ShowCurrentLocation";
+import HumidityAndWind from "./HumidityAndWind";
+import CurrentStatus from "./CurrentStatus";
+import ShowCurrentDay from "./ShowCurrentDay";
+import CurrentDegree from "./CurrentDegree";
 
 const Api = function (props) {
   let [searchcity, setSearchcity] = useState("Tehran");
@@ -64,7 +67,38 @@ const Api = function (props) {
               data2={weatherdata.country}
             />
           </div>
-          <WeatherComponents data={weatherdata} />
+        </div>
+        <div className="row my-auto">
+          <div className="col-md-7 my-auto">
+            <div className="row ">
+              <div className="col-6 my-auto text-start">
+                <div>
+                  <HumidityAndWind
+                    data1={weatherdata.humidity}
+                    data2={weatherdata.wind}
+                  />
+                </div>
+              </div>
+              <div className="col-6 my-auto text-center">
+                <div>
+                  <ShowCurrentDay />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="col-md-5 my-auto">
+            <div className="row">
+              <div className="col-6 my-auto text-center">
+                <div>
+                  <CurrentStatus data={weatherdata.description} />
+                </div>
+              </div>
+              <div className="col-6 my-auto text-center">
+                <CurrentDegree data={weatherdata.temprature} />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
