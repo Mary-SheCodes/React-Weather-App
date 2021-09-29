@@ -20,7 +20,7 @@ const ForcastDay = (props) => {
   };
 
   let imageName = props.data.weather[0].description;
-  imageName = imageName.replace(" ", "_");
+  imageName = imageName.replaceAll(" ", "_");
   let imgUrl = `/weathericons/${imageName}.png`;
 
   return (

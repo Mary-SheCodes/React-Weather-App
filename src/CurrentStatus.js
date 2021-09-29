@@ -1,7 +1,7 @@
 import "./CurrentStatus.css";
 export default function CurrentStatusIcon(props) {
   let imgDescription = props.data;
-  imgDescription = imgDescription.replace(" ", "_");
+  imgDescription = imgDescription.replaceAll(" ", "_");
 
   let imgUrl = `/weathericons/${imgDescription}.png`;
   return (
