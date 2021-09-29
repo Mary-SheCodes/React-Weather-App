@@ -1,5 +1,5 @@
 import "./ShowCurrentDay.css";
-export default function ShowCurrentDay() {
+const ShowCurrentDay = () => {
   let now = new Date();
   let daysIndex = [
     "Sunday",
@@ -46,4 +46,5 @@ export default function ShowCurrentDay() {
       <div>{fullHour}</div>
     </div>
   );
-}
+};
+export default ShowCurrentDay;

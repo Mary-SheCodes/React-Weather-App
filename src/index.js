@@ -1,12 +1,12 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import Api from "./Api";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <StrictMode>
-    <App />
+    <Api />
   </StrictMode>,
   rootElement
 );

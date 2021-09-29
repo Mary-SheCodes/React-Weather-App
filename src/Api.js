@@ -6,6 +6,8 @@ import HumidityAndWind from "./HumidityAndWind";
 import CurrentStatus from "./CurrentStatus";
 import ShowCurrentDay from "./ShowCurrentDay";
 import CurrentDegree from "./CurrentDegree";
+import Footer from "./Footer";
+import "./Api.css";
 
 const Api = function (props) {
   let [searchcity, setSearchcity] = useState("Tehran");
@@ -58,61 +60,71 @@ const Api = function (props) {
   if (loader) {
     return (
       <div>
-        <div className="row">
-          <div className="col-md-9">
-            <Search
-              data1={searchcity}
-              onsubmit={(event) => {
-                onsubmit(event);
-              }}
-              data2={value}
-              onchange={(event) => {
-                onchange(event);
-              }}
-              updateLocation={(event) => {
-                updateLocation(event);
-              }}
-            />
-          </div>
-          <div className="col-md-3 my-auto text-center">
-            <ShowCurrentLocation
-              data1={weatherdata.city}
-              data2={weatherdata.country}
-            />
-          </div>
-        </div>
-        <div className="row my-auto">
-          <div className="col-md-7 my-auto">
-            <div className="row ">
-              <div className="col-6 my-auto text-start">
-                <div>
-                  <HumidityAndWind
-                    data1={weatherdata.humidity}
-                    data2={weatherdata.wind}
-                  />
-                </div>
-              </div>
-              <div className="col-6 my-auto text-center">
-                <div>
-                  <ShowCurrentDay />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-5 my-auto">
+        <div className="main-box">
+          <div className="container">
             <div className="row">
-              <div className="col-6 my-auto text-center">
-                <div>
-                  <CurrentStatus data={weatherdata.description} />
-                </div>
+              <div className="col-md-9">
+                <Search
+                  data1={searchcity}
+                  onsubmit={(event) => {
+                    onsubmit(event);
+                  }}
+                  data2={value}
+                  onchange={(event) => {
+                    onchange(event);
+                  }}
+                  updateLocation={(event) => {
+                    updateLocation(event);
+                  }}
+                />
               </div>
-              <div className="col-6 my-auto text-center">
-                <CurrentDegree data={weatherdata.temprature} />
+              <div className="col-md-3 my-auto text-center">
+                <ShowCurrentLocation
+                  data1={weatherdata.city}
+                  data2={weatherdata.country}
+                />
               </div>
             </div>
+            <div className="row my-auto">
+              <div className="col-md-7 my-auto">
+                <div className="row ">
+                  <div className="col-6 my-auto text-start">
+                    <div>
+                      <HumidityAndWind
+                        data1={weatherdata.humidity}
+                        data2={weatherdata.wind}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-6 my-auto text-center">
+                    <div>
+                      <ShowCurrentDay />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-md-5 my-auto">
+                <div className="row">
+                  <div className="col-6 my-auto text-center">
+                    <div>
+                      <CurrentStatus data={weatherdata.description} />
+                    </div>
+                  </div>
+                  <div className="col-6 my-auto text-center">
+                    <CurrentDegree data={weatherdata.temprature} />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="title">Next Hours</div>
+            <div className="row"></div>
+            <div className="title">Next Days</div>
+            <div className="row"></div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   } else {
