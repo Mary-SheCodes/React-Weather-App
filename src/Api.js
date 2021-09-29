@@ -123,7 +123,7 @@ const Api = function (props) {
             <div className="title">Next Hours</div>
             <div className="row"></div>
             <div className="title">Next Days</div>
-            <div className="row">
+            <div>
               <WeatherForcast coordinates={weatherdata.coordinates} />
             </div>
           </div>

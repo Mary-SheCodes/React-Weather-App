@@ -11,6 +11,7 @@ const ForcastDay = (props) => {
     const temprature = Math.round(props.data.temp.max);
     return `${temprature}°`;
   };
+
   const day = () => {
     const date = new Date(props.data.dt * 1000);
     let day = date.getDay();
@@ -33,7 +34,6 @@ const ForcastDay = (props) => {
         <img className="weathericone img-fluid" src={imgUrl} alt={imageName} />
       </div>
       <div className="humidity-status">{props.data.humidity}%</div>
-      <div className="humidity-status">{props.data.weather[0].description}</div>
     </div>
   );
 };
