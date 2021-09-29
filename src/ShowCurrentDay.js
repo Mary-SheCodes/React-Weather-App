@@ -40,7 +40,7 @@ const ShowCurrentDay = () => {
   let fullDate = `${month} ${date},${year}`;
 
   return (
-    <div className="day">
+    <div className="date">
       <div>{day}</div>
       <div>{fullDate}</div>
       <div>{fullHour}</div>

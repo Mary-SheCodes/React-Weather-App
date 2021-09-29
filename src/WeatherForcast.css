@@ -1,0 +1,28 @@
+.day {
+  font-weight: bold;
+  color: #3f3b3b;
+  font-size: 15px;
+}
+.low-degree {
+  font-family: "Special Elite", cursive;
+  font-weight: bold;
+  color: #b1aeae;
+  font-size: 13px;
+}
+.high-degree {
+  font-family: "Special Elite", cursive;
+  font-weight: bold;
+  color: #858282;
+  font-size: 15px;
+}
+.weathericone {
+  display: block;
+  margin: 0 auto;
+  width: 75%;
+}
+.humidity-status {
+  font-weight: inherit;
+  color: #6b6868;
+  font-size: 16px;
+  text-transform: capitalize;
+}

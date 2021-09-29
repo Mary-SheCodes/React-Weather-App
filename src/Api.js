@@ -7,6 +7,7 @@ import CurrentStatus from "./CurrentStatus";
 import ShowCurrentDay from "./ShowCurrentDay";
 import CurrentDegree from "./CurrentDegree";
 import Footer from "./Footer";
+import WeatherForcast from "./WeatherForcast";
 import "./Api.css";
 
 const Api = function (props) {
@@ -42,10 +43,10 @@ const Api = function (props) {
     const apiKey = "23422500afd990f6bd64b60f46cf509a";
     let units = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchcity}&appid=${apiKey}&units=${units}`;
-    return axios.get(apiUrl).then(getWeatherData);
+    axios.get(apiUrl).then(getWeatherData);
   }
 
-  function getWeatherData(response) {
+  const getWeatherData = (response) => {
     setWeatherdata({
       temprature: Math.round(response.data.main.temp),
       humidity: response.data.main.humidity,
@@ -53,9 +54,10 @@ const Api = function (props) {
       description: response.data.weather[0].description,
       city: response.data.name,
       country: response.data.sys.country,
+      coordinates: response.data.coord,
     });
     setLoader(true);
-  }
+  };
 
   if (loader) {
     return (
@@ -121,7 +123,9 @@ const Api = function (props) {
             <div className="title">Next Hours</div>
             <div className="row"></div>
             <div className="title">Next Days</div>
-            <div className="row"></div>
+            <div className="row">
+              <WeatherForcast coordinates={weatherdata.coordinates} />
+            </div>
           </div>
         </div>
         <Footer />

@@ -1,9 +1,9 @@
-.day {
+.date {
   font-size: medium;
 }
 
 @media (max-width: 400px) {
-  .day {
+  .date {
     font-size: small;
   }
 }
