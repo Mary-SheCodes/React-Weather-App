@@ -1,0 +1,8 @@
+.box-weather {
+  display: block;
+  align-items: center;
+  text-align: center;
+}
+.box-weather:hover {
+  background-color: #e5f7e7;
+}

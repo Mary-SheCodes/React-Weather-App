@@ -7,7 +7,8 @@ import CurrentStatus from "./CurrentStatus";
 import ShowCurrentDay from "./ShowCurrentDay";
 import CurrentDegree from "./CurrentDegree";
 import Footer from "./Footer";
-import WeatherForcast from "./WeatherForcast";
+import WeatherDailyForcast from "./WeatherDailyForcast";
+import WeatherHourlyForcast from "./WeatherHourlyForcast";
 import "./Api.css";
 
 const Api = function (props) {
@@ -121,10 +122,12 @@ const Api = function (props) {
             </div>
 
             <div className="title">Next Hours</div>
-            <div className="row"></div>
+            <div className="row">
+              <WeatherHourlyForcast coordinates={weatherdata.coordinates} />
+            </div>
             <div className="title">Next Days</div>
             <div>
-              <WeatherForcast coordinates={weatherdata.coordinates} />
+              <WeatherDailyForcast coordinates={weatherdata.coordinates} />
             </div>
           </div>
         </div>

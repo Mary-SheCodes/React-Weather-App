@@ -1,14 +1,9 @@
-.day {
+.hour {
   font-weight: bold;
   color: #3f3b3b;
   font-size: 15px;
 }
-.low-degree {
-  font-family: "Special Elite", cursive;
-  font-weight: bold;
-  color: #b1aeae;
-  font-size: 13px;
-}
+
 .high-degree {
   font-family: "Special Elite", cursive;
   font-weight: bold;
