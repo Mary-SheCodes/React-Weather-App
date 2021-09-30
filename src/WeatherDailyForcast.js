@@ -7,6 +7,8 @@ const WeatherDailyForcast = (props) => {
   const [loader, setLoader] = useState(false);
   const [dailyForcastData, setDailyForcastData] = useState(null);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(() => {
     (async () => {
       await callApi();
