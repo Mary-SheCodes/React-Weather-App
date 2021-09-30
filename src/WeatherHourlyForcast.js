@@ -8,16 +8,12 @@ const WeatherHourlyForcast = (props) => {
   const [hourlyForcastData, setHourlylyForcastData] = useState(null);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-
   useEffect(() => {
-    (async () => {
-      await callApi();
-      setLoader(false);
-    })();
+    setLoader(false);
+    callApi();
   }, [props.coordinates.lat, props.coordinates.lon]);
 
   const showHourlyForcast = (response) => {
-    console.log("showHourlyForcast", response.data.hourly);
     setHourlylyForcastData(response.data.hourly);
     setLoader(true);
   };
@@ -29,7 +25,6 @@ const WeatherHourlyForcast = (props) => {
     let units = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(showHourlyForcast);
-    console.log("hourly", apiUrl);
   }
 
   if (loader) {

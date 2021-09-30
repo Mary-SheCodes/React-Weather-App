@@ -22,7 +22,7 @@ const ForcastHour = (props) => {
       <div className="hour">{hour()}</div>
       <div className="high-degree">{temprature()}</div>
       <div>
-        <img className="weathericone img-fluid" src={imgUrl} />
+        <img className="weathericone img-fluid" src={imgUrl} alt={imageName} />
       </div>
       <div className="humidity-status">{props.data.humidity}%</div>
     </div>

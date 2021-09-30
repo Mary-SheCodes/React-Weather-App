@@ -8,16 +8,12 @@ const WeatherDailyForcast = (props) => {
   const [dailyForcastData, setDailyForcastData] = useState(null);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-
   useEffect(() => {
-    (async () => {
-      await callApi();
-      setLoader(false);
-    })();
+    setLoader(false);
+    callApi();
   }, [props.coordinates.lat, props.coordinates.lon]);
 
   const showDailyForcast = (response) => {
-    console.log("showDailyForcast", response.data.hourly);
     setDailyForcastData(response.data.daily);
     setLoader(true);
   };
@@ -29,7 +25,6 @@ const WeatherDailyForcast = (props) => {
     let units = "metric";
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
     axios.get(apiUrl).then(showDailyForcast);
-    console.log("daily", apiUrl);
   }
 
   if (loader) {
