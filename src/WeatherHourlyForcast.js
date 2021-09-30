@@ -48,6 +48,7 @@ const WeatherHourlyForcast = (props) => {
                   </div>
                 );
               }
+              return null;
             })}
           </div>
         </div>
@@ -64,6 +65,7 @@ const WeatherHourlyForcast = (props) => {
                   </div>
                 );
               }
+              return null;
             })}
           </div>
         </div>

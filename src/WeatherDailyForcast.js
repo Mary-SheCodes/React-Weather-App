@@ -48,6 +48,7 @@ const WeatherDailyForcast = (props) => {
                   </div>
                 );
               }
+              return null;
             })}
           </div>
         </div>
@@ -64,6 +65,7 @@ const WeatherDailyForcast = (props) => {
                   </div>
                 );
               }
+              return null;
             })}
           </div>
         </div>
