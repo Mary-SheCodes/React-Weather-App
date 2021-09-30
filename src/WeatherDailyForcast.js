@@ -8,13 +8,27 @@ const WeatherDailyForcast = (props) => {
   const [dailyForcastData, setDailyForcastData] = useState(null);
 
   useEffect(() => {
-    setLoader(false);
-  }, [props.coordinates]);
+    (async () => {
+      await callApi();
+      setLoader(false);
+    })();
+  }, [props.coordinates.lat, props.coordinates.lon]);
 
   const showDailyForcast = (response) => {
+    console.log("showDailyForcast", response.data.hourly);
     setDailyForcastData(response.data.daily);
     setLoader(true);
   };
+
+  function callApi() {
+    let latitude = props.coordinates.lat;
+    let longitude = props.coordinates.lon;
+    const apiKey = "23422500afd990f6bd64b60f46cf509a";
+    let units = "metric";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
+    axios.get(apiUrl).then(showDailyForcast);
+    console.log("daily", apiUrl);
+  }
 
   if (loader) {
     return (
@@ -54,12 +68,7 @@ const WeatherDailyForcast = (props) => {
       </div>
     );
   } else {
-    let latitude = props.coordinates.lat;
-    let longitude = props.coordinates.lon;
-    const apiKey = "23422500afd990f6bd64b60f46cf509a";
-    let units = "metric";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-    axios.get(apiUrl).then(showDailyForcast);
+    callApi();
     return null;
   }
 };
